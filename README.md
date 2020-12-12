@@ -1,0 +1,2 @@
+# kardex-buromc
+Recursos Humanos
