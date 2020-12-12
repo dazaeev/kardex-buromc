@@ -1,0 +1,668 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> 
+<html class="no-js" lang=""> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>BEITALENT - Plan de carrera - Solicitud de curso</title>
+    <meta name="description" content="Sufee Admin - HTML5 Admin Template">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="../apple-icon.png">
+    <link rel="shortcut icon" href="../favicon.ico">
+
+    <link rel="stylesheet" href="../assets/css/normalize.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../assets/css/themify-icons.css">
+    <link rel="stylesheet" href="../assets/css/flag-icon.min.css">
+    <link rel="stylesheet" href="../assets/css/cs-skin-elastic.css">
+    <link rel="stylesheet" href="../assets/css/lib/datatable/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/scss/style.css">
+    <link rel="stylesheet" href="../assets/css/lib/chosen/chosen.min.css">
+    <link rel="stylesheet" href="../assets/select2/css/select2.min.css">
+    <link rel="stylesheet" href="../assets/css/jAlert.css">
+    <link rel="stylesheet" href="../assets/file/jquery-filestyle.css">
+    
+    <link rel="stylesheet" href="../assets/css/style-kardex.css">
+    
+    <!-- BOT UI -->
+    <link rel="stylesheet" href="../assets/bot-buro/botui.min.css">
+	<link rel="stylesheet" href="../assets/bot-buro/botui-theme-default.css">
+    
+    <!-- jQuery Modal -->
+    <link rel="stylesheet" href="../assets/modal/jquery.modal.min.css" />
+    
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
+    <style type="text/css">
+    div.dataTables_filter { float: left; font-size: 14px; color: #00999d; }
+	div.dataTables_paginate { float: left; font-size: 12px; }
+    th { font-size: 13px; color: #00999d; text-align: center; }
+	td { font-size: 10px; text-align: center; }
+	</style>
+</head>
+<body>
+
+	<div id="preloader"></div>
+	<div id="preloader-process" style="display: none"></div>
+	
+	<!-- Left Panel -->
+    <aside id="left-panel" class="left-panel"></aside>
+    <!-- Left Panel -->
+
+    <!-- Right Panel -->
+    <div id="right-panel" class="right-panel">
+
+        <!-- Header init-->
+        <header id="header" class="header"></header>
+        <!-- Header end -->
+        
+        <!-- .content init -->
+        <div class="content mt-3">
+        	<div class="card">
+        	<!-- ###### Messages for user, do not remove ###### -->
+	            <div class="card-header">
+					<h3 class="title-edit" style="color: #00999d;">Información Plan</h3>
+				</div>
+	            <div class="col-sm-12">
+	                <div class="alert alert-dismissible fade show" role="alert" style="display: none; margin-top: 10px" id="div-message">
+	                  <div id="message-content"></div>
+	                </div>
+	            </div>
+	            <!-- HTML BODY init -->
+				<div id="info-employee" class="animated fadeIn">
+					<div class="row form-group">
+						<div class="col-md-12">
+							<div class="card">
+								<div class="card-body">
+									<div id="seccion-table-employee" class="table-responsive"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- .animated -->
+				<div id="add-employee" class="card" style="display:none;">
+					<div class="card-header">
+						<h4 id="add-mod-employee" class="title-edit"></h4>
+					</div>
+					<!-- Plan de Carrera por empleado -->
+					<div id="info-career-plan">
+						<div class="row form-group">
+							<div class="col-md-12">
+								<div class="card">
+									<div class="card-body">
+										<div id="seccion-career-plan" class="table-responsive"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Accion de tabla Ver tecnologias -->
+				<div class="form-group">
+					<button id="btn-cancel-employee" type="button" class="btn btn-danger btn-sm" style="display:none;">
+						<i class="fa fa-close"></i> Cancelar
+					</button>
+				</div>
+				<!-- ################ ################ ################ -->
+				<!-- ################ 1 Insertar curso ################ -->
+				
+					<div id="add-request" class="card-body" style="margin-left:0px; margin-right:0px; display:none;">
+						<form id="form-add-request" method="POST">
+							<div class="row">
+								<div class="col-md-3" style="padding-top:1%;"><span style="font-weight:normal;">Nombre del programa solicitado:</span></div>
+								<div class="col-md-9">
+									<div class="form-group">
+										<div class="input-group">
+											<div class="input-group-addon">
+												<i class="fa fa-address-card"></i>
+											</div>
+											<input type="text" id="name-request-program" name="name-request-program"
+												placeholder="Ejemplo: 'Curso Microsoft'" 
+												title="Nombre del programa"
+												class="form-control"
+												data-minlength="3"
+												required="required"
+												disabled>
+										</div>
+										<div class="help-block with-errors" style="color:red"></div>
+									</div>
+								</div>
+							</div>
+							<div class="row" style="padding-bottom:1%;">
+								<div class="col-md-3" ><span style="font-weight:normal;">Tipo:</span></div>
+								<div class="col-md-9">
+									<select id="free-or-paid" class="form-control" onchange="priceCurse()"
+										title="Seleccionar tipo" required="required">
+										<option value="0">Seleccionar tipo</option>
+										<option value="1">Gratuito</option>
+										<option value="2">De pago</option>
+									</select>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-3" style="padding-top:1%;"><span style="font-weight:normal;">Duración:</span></div>
+								<div class="col-md-9">
+									<div class="form-group">
+										<div class="input-group">
+											<div class="input-group-addon">
+												<i class="fa fa-clock-o"></i>
+											</div>
+											<input type="number" id="duration" name="duration"
+												placeholder="Ejemplo: '16 horas'" 
+												title="Duración"
+												class="form-control"
+												required="required">
+										</div>
+										<div class="help-block with-errors" style="color:red"></div>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-3" style="padding-top:1%;"><span style="font-weight:normal;">Modalidad:</span></div>
+								<div class="col-md-9">
+									<div class="form-group">
+										<div class="input-group">
+											<div class="input-group-addon">
+												<i class="fa fa-check"></i>
+											</div>
+											<input type="text" id="modality" name="modality"
+												placeholder="Ejemplo: Presencial" 
+												title="Modalidad"
+												class="form-control"
+												data-minlength="3"
+												required="required">
+										</div>
+										<div class="help-block with-errors" style="color:red"></div>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-3" style="padding-top:1%;"><span style="font-weight:normal;">Nombre del proveedor (Razón Social):</span></div>
+								<div class="col-md-9">
+									<div class="form-group">
+										<div class="input-group">
+											<div class="input-group-addon">
+												<i class="fa fa-id-card"></i>
+											</div>
+											<input type="text" id="name-provider" name="name-provider"
+												placeholder="Ejemplo: Buro MC" 
+												title="Nombre del proveedor"
+												class="form-control"
+												data-minlength="3"
+												required="required">
+										</div>
+										<div class="help-block with-errors" style="color:red"></div>
+									</div>
+								</div>
+							</div>
+							<div class="row"> 
+								<div class="col-md-3" style="padding-top:1%;"><span style="font-weight:normal;">RFC del proveedor:</span></div>
+								<div class="col-md-9">
+									<div class="form-group">
+										<div class="input-group">
+											<div class="input-group-addon">
+												<i class="fa fa-id-card-o"></i>
+											</div>
+											<input type="text" id="rfc-provider" name="rfc-provider"
+												placeholder="Ejemplo: XAXX010101000" 
+												title="RFC del proveedor"
+												class="form-control"
+												data-minlength="3"
+												required="required">
+										</div>
+										<div class="help-block with-errors" style="color:red"></div>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-3" style="padding-top:1%;"><span style="font-weight:normal;">Domicilio fiscal:</span></div>
+								<div class="col-md-9">		
+									<div class="form-group">
+										<div class="input-group">
+											<div class="input-group-addon">
+												<i class="fa fa-address-card"></i>
+											</div>
+											<input type="text" id="tax-residence" name="tax-residence"
+												placeholder="Ejemplo: Nextengo 78 Santa Cruz Acayucan, Azcapotzalco, C.P. 02770, México D.F." 
+												title="Domicilio fiscal"
+												class="form-control"
+												data-minlength="3"
+												required="required">
+										</div>
+										<div class="help-block with-errors" style="color:red"></div>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-3" style="padding-top:1%;"><span style="font-weight:normal;">Información de contacto: (Nombre, teléfono y correo electrónico del contacto de la empresa capacitadora)</span></div>
+								<div class="col-md-9">	
+									<div class="form-group">
+										<div class="input-group">
+											<div class="input-group-addon">
+												<i class="fa fa-address-card-o"></i>
+											</div>
+											<input type="text" id="contact-info" name="contact-info"
+												placeholder="Ejemplo: José Perez, 54568795, curso@aprender.com" 
+												title="Información de contacto"
+												class="form-control"
+												data-minlength="3"
+												required="required">
+										</div>
+										<div class="help-block with-errors" style="color:red"></div>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-3" style="padding-top:1%;"><span style="font-weight:normal;">Fecha de inicio</span></div>
+								<div class="col-md-9">
+									<div class="form-group">
+										<div class="input-group">
+											<div class="input-group-addon">
+												<i class="fa fa-calendar-check-o"></i>
+											</div>
+											<input type="text" id="start-date" name="start-date"
+												placeholder="Ejemplo: 23/02/2019" 
+												title="Fecha de inicio"
+												class="form-control"
+												onfocus="(this.type='date')" onblur="(this.type='text')"
+												data-minlength="10"
+												data-minlength="3"
+												required="required">
+										</div>
+										<div class="help-block with-errors" style="color:red"></div>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-3" style="padding-top:1%;"><span style="font-weight:normal;">Fecha de término</span></div>
+								<div class="col-md-9">
+									<div class="form-group">
+										<div class="input-group">
+											<div class="input-group-addon">
+												<i class="fa fa-calendar-times-o"></i>
+											</div>
+											<input type="text" id="end-date" name="end-date"
+												placeholder="Ejemplo: 03/03/2019" 
+												title="Fecha de término"
+												onfocus="(this.type='date')" onblur="(this.type='text')"
+												data-minlength="10"
+												class="form-control"
+												data-minlength="3"
+												required="required">
+										</div>
+										<div class="help-block with-errors" style="color:red"></div>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-3" style="padding-top:1%;"><span style="font-weight:normal;">Lugar de impartición</span></div>
+								<div class="col-md-9">
+									<div class="form-group">
+										<div class="input-group">
+											<div class="input-group-addon">
+												<i class="fa fa-map-marker"></i>
+											</div>
+											<input type="text" id="place-curse" name="place-curse"
+												placeholder="Ejemplo: Nextengo 78 Santa Cruz Acayucan, Azcapotzalco, C.P. 02770, México D.F." 
+												title="Lugar de impartición"
+												class="form-control"
+												data-minlength="3"
+												required="required">
+										</div>
+										<div class="help-block with-errors" style="color:red"></div>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div id="nm-cost-wo-tax" style="display: none;" class="col-md-3" style="padding-top:1%;"><span style="font-weight:normal;">Costo total (sin iva)</span></div>
+								<div id="ta-cost-wo-tax" style="display: none;" class="col-md-9">
+									<div class="form-group">
+										<div class="input-group">
+											<div class="input-group-addon">
+												<i class="fa fa-money"></i>
+											</div>
+											<input type="number" id="cost-wo-tax" name="cost-wo-tax"
+												placeholder="Ejemplo: 17500" 
+												title="Costo total (sin iva)"
+												class="form-control"
+												data-minlength="3">
+										</div>
+										<div class="help-block with-errors" style="color:red"></div>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div id="nm-cost-w-tax" style="display: none;" class="col-md-3" style="padding-top:1%;"><span style="font-weight:normal;">Costo total (con iva)</span></div>
+								<div id="ta-cost-w-tax" style="display: none;" class="col-md-9">
+									<div class="form-group">
+										<div class="input-group">
+											<div class="input-group-addon">
+												<i class="fa fa-money"></i>
+											</div>
+											<input type="number" id="cost-w-tax" name="cost-w-tax"
+												placeholder="Ejemplo: 25000" 
+												title="Costo total (con iva)"
+												class="form-control"
+												data-minlength="3">
+										</div>
+										<div class="help-block with-errors" style="color:red"></div>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-3" style="padding-top:1%;"><span style="font-weight:normal;">Objetivos del Curso y/o examen de certificación:</span></div>
+								<div class="col-md-9">
+									<div class="form-group">
+										<div class="input-group">
+											<div class="input-group-addon">
+												<i class="fa fa-mortar-board"></i>
+											</div>
+											<textarea data-minlength="3" id="objetives-course"
+											placeholder="Ejemplo: Desarrollar de mejor manera mis habilidades administrativas" 
+											class="form-control rounded-0" title="Objetivos del Curso y/o examen de certificación: " 
+											name="objetives-course" rows="3" required></textarea>
+										</div>
+										<div class="help-block with-errors" style="color:red"></div>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-3" style="padding-top:1%;"><span style="font-weight:normal;">Objetivos del ingreso al curso y/o examen de certificación relacionadas a su Puesto:</span></div>
+								<div class="col-md-9">
+									<div class="form-group">
+										<div class="input-group">
+											<div class="input-group-addon">
+												<i class="fa fa-puzzle-piece"></i>
+											</div>
+											<textarea data-minlength="3" id="objetives-course-related-job-place"
+												placeholder="Ejemplo: Poder mejorar habilidades de las cuales podran ofrecerse a los clientes nuevos proyectos" 
+												class="form-control rounded-0" title="Objetivos del ingreso al curso y/o examen de certificación relacionadas a su Puesto:" 
+												name="objetives-course-related-job-place" rows="3" required></textarea>
+												
+										</div>
+										<div class="help-block with-errors" style="color:red"></div>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-3" style="padding-top:1%;"><span style="font-weight:normal;">Justificacion técnica</span></div>
+								<div class="col-md-9">
+									<div class="form-group">
+										<div class="input-group">
+											<div class="input-group-addon">
+												<i class="fa fa-area-chart"></i>
+											</div>
+											
+											<textarea data-minlength="3" id="technical-justification"
+												placeholder="Ejemplo: Se mejoraran mis habilidades en tal tecnología..." 
+												class="form-control rounded-0" title="Justificacion técnica" 
+												name="technical-justification" rows="3" required></textarea>
+											
+										</div>
+										<div class="help-block with-errors" style="color:red"></div>
+									</div>		
+								</div>
+							</div>			
+							<div class="card-body" style="width:80vw;">
+								<h4 class="title-edit">DATOS DE EMPRESAS</h4> <span style="font-weight:normal;">(Enlistar mínimo 3 opciones más que presentan el mismo programa de capacitación y/o examen de certificación, anexando el programa y costo de este, fundamentar en el espacio posterior derecho por qué no sería la opción para considerarle como proveedor).</span>
+							</div>
+							<div class="row" style="padding-bottom:2%;">
+								<div class="col-md-4" style="text-align:center;">
+									<span>Empresa</span>
+								</div>
+								<div class="col-md-8" style="text-align:center;">
+									<span>Justificación</span>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-5 border">
+									<div class="form-group">
+										<div class="input-group">
+											<div class="input-group-addon">
+												<i class="fa fa-industry"></i>
+											</div>
+											<input type="text" id="company1" name="company1"
+												placeholder="1" 
+												title="Empresa 1"
+												class="form-control"
+												data-minlength="3"
+												required="required">
+										</div>
+										<div class="help-block with-errors" style="color:red"></div>
+									</div>
+								</div>
+								<div class="col-md-7 border">
+									<div class="form-group">
+										<div class="input-group">
+											<div class="input-group-addon">
+												<i class="fa fa-handshake-o"></i>
+											</div>
+											<input type="text" id="justification1" name="justification1"
+												placeholder="" 
+												title="Justificación de la empresa 1"
+												class="form-control"
+												data-minlength="3"
+												required="required">
+										</div>
+										<div class="help-block with-errors" style="color:red"></div>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-5 border">
+									<div class="form-group">
+										<div class="input-group">
+											<div class="input-group-addon">
+												<i class="fa fa-industry"></i>
+											</div>
+											<input type="text" id="company2" name="company2"
+												placeholder="2" 
+												title="Empresa 2"
+												class="form-control"
+												data-minlength="3">
+										</div>
+										<div class="help-block with-errors" style="color:red"></div>
+									</div>
+								</div>
+								<div class="col-md-7 border">
+									<div class="form-group">
+										<div class="input-group">
+											<div class="input-group-addon">
+												<i class="fa fa-handshake-o"></i>
+											</div>
+											<input type="text" id="justification2" name="justification2"
+												placeholder="" 
+												title="Justificación de la empresa 2"
+												class="form-control"
+												data-minlength="3">
+										</div>
+										<div class="help-block with-errors" style="color:red"></div>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-5 border">
+									<div class="form-group">
+										<div class="input-group">
+											<div class="input-group-addon">
+												<i class="fa fa-industry"></i>
+											</div>
+											<input type="text" id="company3" name="company3"
+												placeholder="3" 
+												title="Empresa 3"
+												class="form-control"
+												data-minlength="3">
+										</div>
+										<div class="help-block with-errors" style="color:red"></div>
+									</div>
+								</div>
+								<div class="col-md-7 border">
+									<div class="form-group">
+										<div class="input-group">
+											<div class="input-group-addon">
+												<i class="fa fa-handshake-o"></i>
+											</div>
+											<input type="text" id="justification3" name="justification3"
+												placeholder="" 
+												title="Justificación de la empresa 3"
+												class="form-control"
+												data-minlength="3">
+										</div>
+										<div class="help-block with-errors" style="color:red"></div>
+									</div>
+								</div>
+							</div>
+	                    </form>
+					</div>
+				
+				<!-- Accion -->
+				<div class="form-group">
+					<button id="btn-cancel-request" type="button" class="btn btn-danger btn-sm" style="display:none;">
+						<i class="fa fa-close"></i> Cancelar
+					</button>
+					<button id="btn-save-request" type="button" class="btn btn-primary btn-sm" style="display:none;">
+						<i class="fa fa-plus"></i> Guardar
+					</button>
+				</div>
+				<!-- ################ 0 Insertar curso ################ -->
+				<!-- ################ ################ ################ -->
+				<!-- HTML BODY end -->
+            </div>
+        </div> 
+        <!-- .content end -->
+        
+    </div><!-- /#right-panel -->
+
+    <!-- Right Panel -->
+    
+    <!-- Modal links datasheet -->
+    <div id="modal-add-certificate" class="modal">
+    	<div class="card-header">
+			<h6 id="modal-info-action"></h6>
+		</div>
+		<div class="card-body">
+			<h6 id="modal-info-sub-action"></h6>
+		</div>
+    	<div class="card-body">
+    		<form id="form-add-certificate-employee" method="POST">
+    			<div class="form-group">
+					<div class="input-group">
+						<div class="input-group-addon">
+							<i class="fa fa-certificate"></i>
+						</div>
+						<input type="text" id="certification" name="certification"
+							placeholder="Certificación"
+							title="Certificación" class="form-control"
+							data-minlength="3"
+							required="required">
+					</div>
+					<div class="help-block with-errors" style="color:red"></div>
+				</div>
+				<div class="form-group">
+					<div class="input-group">
+						<div class="input-group-addon">
+							<i class="fa fa-info-circle"></i>
+						</div>
+						<input type="text" id="description" name="description"
+							placeholder="Descripción"
+							title="Descripción" class="form-control" data-minlength="3"
+							required="required">
+					</div>
+					<div class="help-block with-errors" style="color:red"></div>
+				</div>
+				<div class="form-group">
+					<div class="input-group">
+						<div class="input-group-addon">
+							<i class="fa fa-warning"></i>
+						</div>
+						<input type="text" id="date-expiration" name="date-expiration"
+							placeholder="Fecha de vencimiento" 
+							title="Fecha de vencimiento"
+							class="form-control"
+							onfocus="(this.type='date')" onblur="(this.type='text')"
+							data-minlength="10"
+							required="required">
+					</div>
+					<div class="help-block with-errors" style="color:red"></div>
+				</div>
+				<div class="form-group">
+					<div class="input-group">
+						<input type="file" id="file-certificate" name="file-certificate" onchange="setValueFile('file-certificate')"
+							class="jfilestyle"
+							data-dragdrop="false"
+							data-theme="black"
+							data-inputSize="160px"
+							data-text="+"
+							data-placeholder="Agregar documento"
+							title="Agregar documento"
+							required="required">
+					</div>
+					<div class="help-block with-errors" style="color:red"></div>
+				</div>
+			</form>
+		</div>
+    	<button id="btn-cancel-certificate" type="button" 
+    		onclick="closeModal();"
+    		class="btn btn-danger btn-sm">
+			<i class="fa fa-close"></i> Cancelar
+		</button>
+		<button id="btn-save-certificate" type="button" class="btn btn-primary btn-sm">
+			<i class="fa fa-plus"></i> Guardar
+		</button>
+	</div>
+    
+    <!-- ###### MODAL, do not remove ###### -->
+	<div id="modal-search-portal" class="modal"></div>
+    
+    <!-- ###### BOT UI, do not remove ###### -->
+    <div id="reminder-bot" class="widget-content" style="position: fixed; bottom: 0; right: 0;">
+    	<button class="btn-minimize float-right" type="button">
+    		<i class="fa fa-angle-down"></i>
+    	</button>
+    	<bot-ui></bot-ui>
+    </div>
+
+    <script src="../assets/js/vendor/jquery-2.1.4.min.js"></script>
+    <script src="../assets/plugins/jquery/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+    <script src="../assets/js/plugins.js"></script>
+    <script src="../assets/js/main.js"></script>
+    
+    <script src="../assets/js/lib/data-table/datatables.gral.js"></script>
+    <script src="../assets/js/lib/data-table/dataTables.bootstrap.min.js"></script>
+    <script src="../assets/js/lib/data-table/dataTables.buttons.min.js"></script>
+    <script src="../assets/js/lib/data-table/buttons.bootstrap.min.js"></script>
+    <script src="../assets/js/lib/data-table/jszip.min.js"></script>
+    <script src="../assets/js/lib/data-table/pdfmake.min.js"></script>
+    <script src="../assets/js/lib/data-table/vfs_fonts.js"></script>
+    <script src="../assets/js/lib/data-table/buttons.html5.min.js"></script>
+    <script src="../assets/js/lib/data-table/buttons.print.min.js"></script>
+    <script src="../assets/js/lib/data-table/buttons.colVis.min.js"></script>
+    <script src="../assets/js/lib/data-table/datatables-init.js"></script>
+    <script src="../assets/js/lib/chosen/chosen.jquery.min.js"></script>
+    <script src="../assets/select2/js/select2.full.min.js"></script>
+    <script src="../assets/js/jAlert/jAlert.min.js"></script>
+	<script src="../assets/js/jAlert/jAlert-functions.min.js"></script>
+	<script src="../assets/bootstrap-validator-master/js/validator.js"></script>
+	<script src="../assets/file/jquery-filestyle.js"></script>
+	
+	<!-- jQuery Modal -->
+	<script src="../assets/modal/jquery.modal.min.js"></script>
+	
+	<!-- BOT UI -->
+    <script src="../assets/js-controller/vue.min.js"></script>
+	<script src="../assets/js-controller/botui.js"></script>
+    
+    <!-- Controllers -->
+    <script src="../assets/js/utils/models.js"></script>
+    <script src="../assets/js/adm/request-of-courses.js"></script>
+    <script src="../assets/js/utils/commons.js"></script>
+    <script src="../assets/js/utils/mime.js"></script>
+</body>
+</html>

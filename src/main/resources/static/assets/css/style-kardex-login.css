@@ -1,0 +1,38 @@
+/* This css file is to over write bootstarp css
+--------------------------------------------------------- /
+* Theme Name: Kardex Template
+* Theme URI: https://www.buromc.com/
+* Author: Nazario Dazaeev Gonzalez Herrera
+* Author URI: https://www.buromc.com/
+* Description: Material
+* Version: 1.0.0
+* Tags: html
+--------------------------------------------------------- */
+.some-page-wrapper-l {
+  margin: 0px!important;
+  background-color: #343a40 !important;
+}
+.row-l {
+  display: flex!important;
+  flex-direction: row!important;
+  flex-wrap: wrap!important;
+  width: 100%!important;
+}
+.column-login {
+  background-color: #343a40 !important;
+  height: 100%!important;
+  background-position: center;
+  
+  background-repeat: no-repeat;
+  position:absolute;
+  top:0;
+  bottom:0;
+  width:50%;
+  background-size:cover;
+}
+.double-column-l {
+  display: flex!important;
+  flex-direction: column!important;
+  flex-basis: 100%!important;
+  flex: 1!important;
+}

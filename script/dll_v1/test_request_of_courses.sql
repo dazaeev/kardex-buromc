@@ -1,0 +1,79 @@
+-- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
+--
+-- Host: localhost    Database: test
+-- ------------------------------------------------------
+-- Server version	5.5.5-10.3.8-MariaDB
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `request_of_courses`
+--
+
+DROP TABLE IF EXISTS `request_of_courses`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `request_of_courses` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `active` int(11) DEFAULT NULL,
+  `approved` int(11) DEFAULT NULL,
+  `company_1` varchar(255) DEFAULT NULL,
+  `company_2` varchar(255) DEFAULT NULL,
+  `company_3` varchar(255) DEFAULT NULL,
+  `contact_info` varchar(255) DEFAULT NULL,
+  `cost_w_tax` varchar(255) DEFAULT NULL,
+  `cost_wo_tax` varchar(255) DEFAULT NULL,
+  `date` datetime NOT NULL,
+  `duration` varchar(255) DEFAULT NULL,
+  `end_date` varchar(255) DEFAULT NULL,
+  `justification_1` varchar(255) DEFAULT NULL,
+  `justification_2` varchar(255) DEFAULT NULL,
+  `justification_3` varchar(255) DEFAULT NULL,
+  `modality` varchar(255) DEFAULT NULL,
+  `modified` datetime DEFAULT NULL,
+  `name_certification` varchar(255) DEFAULT NULL,
+  `name_provider` varchar(255) DEFAULT NULL,
+  `name_request_program` varchar(255) DEFAULT NULL,
+  `objetives_course` varchar(255) DEFAULT NULL,
+  `objetives_course_related_job_place` varchar(255) DEFAULT NULL,
+  `place_curse` varchar(255) DEFAULT NULL,
+  `rfc_provider` varchar(255) DEFAULT NULL,
+  `start_date` varchar(255) DEFAULT NULL,
+  `tax_residence` varchar(255) DEFAULT NULL,
+  `technical_justification` varchar(255) DEFAULT NULL,
+  `employee_gral_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK9rp9olwuh3hissowqojqmlio2` (`employee_gral_id`),
+  CONSTRAINT `FK9rp9olwuh3hissowqojqmlio2` FOREIGN KEY (`employee_gral_id`) REFERENCES `employee_gral` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `request_of_courses`
+--
+
+LOCK TABLES `request_of_courses` WRITE;
+/*!40000 ALTER TABLE `request_of_courses` DISABLE KEYS */;
+INSERT INTO `request_of_courses` VALUES (12,1,0,'12345678987654321234567','N/A','N/A','12345678987654321234567','N/A','N/A','2019-08-27 23:40:57','11','1212-12-12','12345678987654321234567','N/A','N/A','12345678987654321234567','2019-08-27 23:41:32','','12345678987654321234567','Java','12345678987654321234567','12345678987654321234567','12345678987654321234567','12345678987654321234567','1212-12-12','12345678987654321234567','12345678987654321234567',2),(13,1,0,'1234567654321234567876543','N/A','N/A','1234567654321234567876543','111','122','2019-08-27 23:42:33','2','2222-02-22','1234567654321234567876543','N/A','N/A','1234567654321234567876543','2019-08-27 23:42:39','','1234567654321234567876543','Fundamentos de Sistemas Operativos','1234567654321234567876543','1234567654321234567876543','1234567654321234567876543','1234567654321234567876543','0222-02-22','1234567654321234567876543','1234567654321234567876543',2),(14,1,0,'123456765432123456','N/A','N/A','123456765432123456','N/A','N/A','2019-08-27 23:44:00','6','0001-11-11','123456765432123456','N/A','N/A','123456765432123456','2019-08-27 23:44:06','','123456765432123456','Fundamentos de Sistemas Operativos','123456765432123456','123456765432123456','123456765432123456','123456765432123456','0011-11-11','123456765432123456','123456765432123456',4);
+/*!40000 ALTER TABLE `request_of_courses` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2019-09-02 14:30:19

@@ -1,0 +1,69 @@
+			<div class="header-menu">
+
+                <div class="col-sm-7">
+                    <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a>
+                    <div class="header-left">
+                        <button class="search-trigger">
+                        	<i class="fa fa-search"></i>
+                        </button>
+                        <div class="form-inline">
+                            <form class="search-form">
+                                <input id="input-search-portal" class="form-control mr-sm-2" type="text" placeholder="Buscar ..." aria-label="Search">
+                                <button class="search-close" type="submit"><i class="fa fa-close"></i></button>
+                            </form>
+                        </div>
+
+                        <div class="dropdown for-notification">
+							<button class="btn btn-secondary dropdown-toggle" type="button" id="notification" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<i class="fa fa-bell"></i>
+								<span id="count-notification" class="count bg-danger"></span>
+							</button>
+							<div id="div-notification" class="dropdown-menu force-overflow scrollbar" style="min-width: 16rem;" aria-labelledby="notification">
+							</div>
+                        </div>
+                        
+                        <div class="user-area" style="padding-right: 130px;">
+                        	<h6 style="padding-top: 11px; font-size:14px; color: #00999d;">BEITALENT</h6>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-sm-5">
+                    <div class="user-area dropdown float-right">
+                        <a id="business-photo" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        </a>
+                        <div class="user-area">
+                    		<h6 id="lblUserName" style="padding-top: 11px; padding-right:10px; font-size:14px;"></h6>
+                    	</div>
+                        <div class="user-menu dropdown-menu">
+                        		<h6 id="lblEmail" style="color: #00999d;"></h6>
+                        		<div class="dropdown-divider"></div>
+                                <a class="nav-link" href="javascript:helpBuro();">
+                                	<i class="fa fa-question-circle">
+                                	</i>
+                                	Ayuda
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="nav-link" href="javascript:callLogout();">
+                                	<i class="fa fa-close">
+                                	</i>
+                                	Cerrar sesión
+                                </a>
+                        </div>
+                    </div>
+                    
+                    <div class="language-select dropdown" id="language-select">
+                        <a class="dropdown-toggle" href="#" data-toggle="dropdown"  id="language" aria-haspopup="true" aria-expanded="true">
+                            <i class="flag-icon flag-icon-mx"></i>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="language" >
+                            <div class="dropdown-item">
+                                <a href="javascript:setLanguage();">
+                                	<i class="flag-icon flag-icon-us"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>

@@ -1,0 +1,224 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Kardex Templete</title>
+    <meta name="description" content="Kardex">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="../apple-icon.png">
+    <link rel="shortcut icon" href="../favicon.ico">
+
+    <link rel="stylesheet" href="../assets/css/normalize.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../assets/css/themify-icons.css">
+    <link rel="stylesheet" href="../assets/css/flag-icon.min.css">
+    <link rel="stylesheet" href="../assets/css/cs-skin-elastic.css">
+    <!-- <link rel="stylesheet" href="assets/css/bootstrap-select.less"> -->
+    <link rel="stylesheet" href="../assets/scss/style.css">
+    
+    <link rel="stylesheet" href="../assets/css/style-kardex.css">
+    <link rel="stylesheet" href="../assets/css/hover-effect-kardex.css">
+    
+    <!-- BOT UI -->
+    <link rel="stylesheet" href="../assets/bot-buro/botui.min.css">
+	<link rel="stylesheet" href="../assets/bot-buro/botui-theme-default.css">
+    
+    <!-- jQuery Modal -->
+    <link rel="stylesheet" href="../assets/modal/jquery.modal.min.css" />
+    
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
+	
+	<style type="text/css">
+    div.dataTables_filter { float: left; font-size: 14px; color: #00999d; }
+	div.dataTables_paginate { float: left; font-size: 12px; }
+    th { font-size: 13px; color: #00999d; text-align: center; }
+	td { font-size: 10px; text-align: center; }
+	#contentHome{
+		width:100%;
+		height:250px;
+		position:relative;
+		height:100%;
+	}
+	.w100{
+		width:100%;
+		position:relative;
+		height:1000px;
+	}
+	</style>
+</head>
+<body>
+
+	<div id="preloader"></div>
+	
+	<!-- Left Panel -->
+	<aside id="left-panel" class="left-panel" style="display: none;"></aside>
+    <!-- Left Panel -->
+
+    <!-- Right Panel -->
+    <div id="right-panel" class="right-panel">
+
+        <!-- Header init-->
+        <header id="header" class="header"></header>
+        <!-- Header end -->
+
+		<!-- .content init -->
+		<div id="content-main" class="content mt-3">
+			<div id="content-sub-main" class="card">
+				<!-- ###### Messages for user, do not remove ###### -->
+				<div class="card-header">
+					<h3 class="title-edit" style="color: #00999d;">Bienvenid@</h3>
+				</div>
+				<div class="col-sm-12">
+					<div class="alert alert-dismissible fade show" role="alert"
+						style="display: none; margin-top: 10px" id="div-message">
+						<div id="message-content"></div>
+					</div>
+				</div>
+				<!-- HTML BODY init -->
+				<div id="main-content" class="content mt-3">
+					<div id="main-content-dynamic" class="col-sm-12 col-lg-6"></div>
+					<div class="col-sm-12 col-lg-6">
+						<!--.col-->
+			            <div class="col-sm-5 col-lg-12">
+			                <div id="yammer-social" class="card-header" style="height: 35em;"></div>
+			            </div>
+			            <!--/.col-->
+					</div>
+		        </div> <!-- .content -->
+				
+				<div id="content-dashboard" class="card-body" style="display: none;">
+					<img class="float-right" style="height: 50px; width: 120px" src="../images/be-it-negro.png" alt="Avatar">
+					<h3 id="title-image" class="float-right" style="color: #00999d"></h3>
+					
+					<div class="form-group">
+						<button id="btn-cancel-employee" type="button" class="btn btn-info btn-sm">
+							<i class="fa fa-reply"></i> Regresar
+						</button>
+					</div>
+					
+					<!-- Content -->
+					<div id="contentHome" class="text-center" style="width: 100%;height: 530px;"></div>
+				</div>
+				<!-- HTML BODY end -->
+			</div>
+		</div>
+		<!-- .content end -->
+        
+    </div><!-- /#right-panel -->
+
+    <!-- Right Panel -->
+    
+    <!-- ###### MODAL RECORD ###### -->
+	<div id="modal-record-portal" class="modal animated fadeIn" style="max-width: 44em;">
+		<div id="body-modal-record-portal" class="card-body">
+			<div class="row">
+				<img style="height: 17em; width: 40em" src="../images/bienvenida_header.png" alt="Avatar">
+			</div>
+			<div class="row">
+				<div class="hovereffect col-sm-3" style="text-align: center; padding-top: 2em; padding-bottom: 2em;">
+					<img class="img-responsive" style="padding-left:2em; height: 6; width: 6" src="../images/expediente_virtual.png" onclick="e('/adm/employees-gral.html');" alt="">
+					<div class="overlay">
+			           <a class="info" href="/adm/employees-gral.html">Acceder</a>
+			        </div>
+				</div>
+				<div class="col-sm-9" style="padding-top: 1em;">
+					<h4 style="color: #00999d!important; padding-bottom: 2px;">¡Crea tu expediente virtual!</h4>
+					<h5 style="font-size: 14px!important;">En este apartado deberás subir toda la información completa y 
+					añadir documentos, por lo que te solicitamos que tengas a la mano 
+					tu: Número del Seguro Social, RFC, CURP, Cartilla Militar, Acta de 
+					Nacimiento, Comprobante de domicilio, Comprobante de estudios, 
+					Cédula profesional, INE, C.V. y referencias laborales/personales.</h5>
+				</div>
+			</div>
+			<hr class="mt-2 mb-2">
+			<div class="row">
+				<div class="hovereffect col-sm-3" style="text-align: center; padding-top: 2em;">
+					<img class="img-responsive" style="padding-left:2em; height: 6; width: 6" src="../images/experiencia_laboral.png" onclick="e('/adm/employees-workexperience.html');" alt="Avatar">
+					<div class="overlay">
+			           <a class="info" href="/adm/employees-workexperience.html">Acceder</a>
+			        </div>
+				</div>
+				<div class="col-sm-9" style="padding-top: 1em;">
+					<h4 style="color: #00999d!important; padding-bottom: 2px;">¡Completa tu experiencia laboral!</h4>
+					<h5 style="font-size: 14px!important;">Para nosotros es importante saber y reconocer todos los empleos en 
+					los que has estado. Por favor, llena todos los campos que aparecen.</h5>
+				</div>
+			</div>
+			<hr class="mt-2 mb-2">
+			<div class="row">
+				<div class="hovereffect col-sm-3" style="text-align: center; padding-top: 2em;">
+					<img class="img-responsive" style="padding-left:2em; height: 6; width: 6" src="../images/desarrollo_laboral.png" onclick="e('/adm/employees-labor.html');" alt="Avatar">
+					<div class="overlay">
+			           <a class="info" href="/adm/employees-labor.html">Acceder</a>
+			        </div>
+				</div>
+				<div class="col-sm-9" style="padding-top: 1em;">
+					<h4 style="color: #00999d!important; padding-bottom: 2px;">¡Tu desarrollo laboral!</h4>
+					<h5 style="font-size: 14px!important;">En esta sección podrás crear solicitudes de capacitaciones o cursos que 
+					necesites, además de darles seguimiento en el momento. También te ayuda a perfeccionar y desarrollar tus 
+					competencias laborales. ¡Úsalo!</h5>
+				</div>
+			</div>
+			<hr class="mt-2 mb-2">
+			<div class="row">
+				<div class="hovereffect col-sm-3" style="text-align: center; padding-top: 2em;">
+					<img class="img-responsive" style="padding-left:2em; height: 6; width: 6" src="../images/vacaciones.png" onclick="e('/adm/employees-labor.html');" alt="Avatar">
+					<div class="overlay">
+			           <a class="info" href="/adm/employees-labor.html">Acceder</a>
+			        </div>
+				</div>
+				<div class="col-sm-9" style="padding-top: 1em;">
+					<h4 style="color: #00999d!important; padding-bottom: 2px;">¡Vacaciones y permisos!</h4>
+					<h5 style="font-size: 14px!important;">Gestiona tus solicitudes de vacaciones y ausencias desde un solo lugar 
+					y mantente informado sobre la resolución. Así que comienza a planear tus días.</h5>
+				</div>
+			</div>
+		</div>
+		<button id="btn-cancel-record" type="button" onclick="closeModal();"
+			class="btn btn-danger btn-sm float-right">
+			<i class="fa fa-close"></i> Cancelar
+		</button>
+	</div>
+    
+    <!-- ###### MODAL, do not remove ###### -->
+	<div id="modal-search-portal" class="modal"></div>
+    
+    <!-- ###### BOT UI, do not remove ###### -->
+    <div id="reminder-bot" class="widget-content" style="position: fixed; bottom: 0; right: 0;">
+    	<button class="btn-minimize float-right" type="button">
+    		<i class="fa fa-angle-down"></i>
+    	</button>
+    	<bot-ui></bot-ui>
+    </div>
+
+    <script src="../assets/js/vendor/jquery-2.1.4.min.js"></script>
+    <script src="../assets/plugins/jquery/jquery.js"></script>
+    <script src="../assets/js/popper.min.js"></script>
+    <script src="../assets/js/plugins.js"></script>
+    <script src="../assets/js/main.js"></script>
+    
+    <script type="text/javascript" src="https://c64.assets-yammer.com/assets/platform_embed.js"></script>
+    
+    <script src="../assets/js/lib/data-table/datatables.gral.js"></script>
+    
+    <!-- jQuery Modal -->
+	<script src="../assets/modal/jquery.modal.min.js"></script>
+    
+    <!-- BOT UI -->
+    <script src="../assets/js-controller/vue.min.js"></script>
+	<script src="../assets/js-controller/botui.js"></script>
+	
+    <!-- Controllers -->
+    <script src="../assets/js/utils/models.js"></script>
+    <script src="../assets/js/home/home-local.js"></script>
+    <script src="../assets/js/utils/commons.js"></script>
+
+</body>
+</html>

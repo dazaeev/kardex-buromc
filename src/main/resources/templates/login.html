@@ -1,0 +1,170 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="">
+<!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>BEITALENT</title>
+<meta name="description" content="Kardex">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="apple-touch-icon" href="apple-icon.png">
+<link rel="shortcut icon" href="favicon.ico">
+
+<!-- Estilos -->
+<link rel="stylesheet" href="../assets/css/normalize.css">
+<link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+<link rel="stylesheet" href="../assets/css/font-awesome.min.css">
+<link rel="stylesheet" href="../assets/css/themify-icons.css">
+<link rel="stylesheet" href="../assets/css/flag-icon.min.css">
+<link rel="stylesheet" href="../assets/css/cs-skin-elastic.css">
+<link rel="stylesheet" href="../assets/scss/style.css">
+
+<link rel="stylesheet" href="../assets/css/style-kardex.css">
+<link rel="stylesheet" href="../assets/css/style-kardex-login.css">
+
+<!-- BOT UI -->
+<link rel="stylesheet" href="../assets/bot-buro/botui.min.css">
+<link rel="stylesheet" href="../assets/bot-buro/botui-theme-default.css">
+
+<link rel="stylesheet" href="../assets/css/jAlert.css">
+
+</head>
+<body>
+	<div id="preloader-process" style="display: none;"></div>
+
+	<div class='some-page-wrapper-l'>
+		<div class='row-l'>
+			<div class='double-column-l'>
+				<div class='column-login'>
+					<div class="sufee-login d-flex align-content-center flex-wrap">
+						<div class="container">
+							<div class="login-content">
+								<div class="login-logo" title="login" style="padding-bottom: 12px;">
+									<a href="https://www.grupobeit.com/"> 
+										<img class="align-content" src="../images/be-it-blanco-verde.png" width="20%" alt="">
+										<br>
+										<br>
+										<img class="align-content" src="../images/logo_beitalent_blanco_turquesa.png" width="55%" alt="">
+									</a>
+								</div>
+								<div class="login-form">
+									<div class="col-sm-10">
+										<div id="div-error" class="card-body" style="display: none;">
+											<h6 id="lblError" style="color: red;text-align: left;"></h6>
+										</div>
+									</div>
+									<div class="col-sm-2">
+										<div id="div-help" class="card-body">
+											<h6 id="lblHelp" title="Ayuda" style="text-align: right;"><a href="javascript:helpBuro();" style="color: #219a9e;">¿Ayuda?</a></h6>
+										</div>
+									</div>
+									<form id="sign_in_a">
+										<div class="form-group">
+											<label for="account" class="control-label">Usuario</label> 
+											<input type="text" 
+												class="form-control"
+												id="account" 
+												name="account"
+												placeholder="Cuenta de Dominio"
+												required>
+										</div>
+									</form>
+									<form id="sign_in" method="POST">
+										<div class="form-group">
+											<input type="email" 
+												class="form-control"
+												id="email" 
+												name="email"
+												placeholder="Correo"
+												style="display: none;"
+												required>
+										</div>
+										<div class="form-group">
+											<label for="password" class="control-label">Contraseña</label> 
+											<input type="password" 
+												class="form-control"
+												id="password" 
+												name="password"
+												placeholder="Contraseña"
+												required>
+										</div>
+										<!--
+										<div class="checkbox">
+											<label> 
+												<input type="checkbox"> Recordar
+											</label>
+											<label class="pull-right"> 
+												<a href="/forgets">Olvidaste la contraseña</a>
+											</label>
+										</div>
+										-->
+										<button id="btn-login" type="button" class="btn btn-success btn-flat m-b-30 m-t-30">Ingresar</button>
+									</form>
+								</div>
+								<div class="login-logo" title="login" style="padding-top: 52px;">
+									<div class="col-sm-6" style="text-align: left;">
+										<a href="https://www.buromc.com" target="_blank">
+											<img class="align-content" src="../images/logo_buromc_blanco.png" width="60%"alt="">
+										</a>
+									</div>
+									<div class="col-sm-6" style="text-align: right;">
+										<a href="http://www.elitinfraservices.com" target="_blank">
+											<img class="align-content" src="../images/logo_elit_blanco.png" width="50%"alt="">
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class='double-column-l'>
+				<div class='column-login' style="background-image: url(../images/login_r.png);"></div>
+			</div>
+		</div>
+	</div>
+
+	<!-- ###### BOT UI, do not remove ###### -->
+	<div id="reminder-bot" class="widget-content" 
+		style="
+		-webkit-box-shadow: 0px -3px 10px -1px rgba(54,54,54,1);
+		-moz-box-shadow: 0px -3px 10px -1px rgba(54,54,54,1);
+		box-shadow: 0px -3px 10px -1px rgba(54,54,54,1);
+		display: none;
+		width: 15em!important; position: fixed; bottom: 0; right: 15px; background-color: #ffffff; border-radius: 12px;">
+		<div style="
+			-webkit-box-shadow: 0px -3px 10px -1px rgba(54,54,54,1);
+			-moz-box-shadow: 0px -3px 10px -1px rgba(54,54,54,1);
+			box-shadow: 0px -3px 10px -1px rgba(54,54,54,1);">
+			<button class="btn btn-minimize float-right" type="button" style="background-color: #ffffff; border-radius: 12px;">
+				<i class="fa fa-minus"></i>
+			</button>
+		</div>
+		<bot-ui></bot-ui>
+	</div>
+	
+	<!-- JavaScript -->
+	<script src="../assets/js/vendor/jquery-2.1.4.min.js"></script>
+    
+	<script src="../assets/plugins/jquery/jquery.js"></script>
+	<script src="../assets/js/jAlert/jAlert.min.js"></script>
+	<script src="../assets/js/jAlert/jAlert-functions.min.js"></script>
+	<script src="../assets/bootstrap-validator-master/dist/validator.min.js"></script>
+		
+	<script src="../assets/js/popper.min.js"></script>
+	<script src="../assets/js/plugins.js"></script>
+	<script src="../assets/js/main.js"></script>
+	
+	<!-- BOT UI -->
+    <script src="../assets/js-controller/vue.min.js"></script>
+	<script src="../assets/js-controller/botui.js"></script>
+	
+	<!-- Controllers -->
+	<script src="../assets/js-controller/login.js"></script>
+</body>
+</html>
